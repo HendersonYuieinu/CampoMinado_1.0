@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://www.1001fonts.com/arcadeclassic-font.html" rel="stylesheet">
+</head>
+<body>
+    <div id="game-board">
+        <img src="assets/bomb.png" alt="bomba" id="bomb-image" hidden>
+        
+        <div id="interfaces">
+            <div class="info" id="info1">
+                <p id="name-score">pontuacao</p>
+                <p id="score"></p>
+            </div>
+            <div id="botaoreset">
+                <button id="reset" class="nopressed" onclick="resetclick()"><b>↺</b></button>
+            </div>
+            <div class="info" id="info2">
+                <img src="assets/flag.png" alt="flag" id="flag-image">
+                <p id="flagcount">45</p>
+            </div>
+        </div>
+
+        <canvas id="game-canva">
+            <h1>minesweeper</h1>
+        </canvas>
+        <div id="contador">
+            <div id="timer">
+                <p id="clock">00:00:00</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

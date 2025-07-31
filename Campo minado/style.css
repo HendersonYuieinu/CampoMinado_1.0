@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'ArcadeClassic';
+    src: url(./assets/arcadeclassic/ARCADECLASSIC.TTF) format('truetype');
+}
+
+body{
+    background-color: rgb(13, 13, 46);
+    /* background-color: rgb(52, 45, 131); */
+    font-family: 'ArcadeClassic';
+}
+
+button{
+    border: none;
+    font-size: larger;
+}
+
+#game-board{
+    width: min-content;
+    margin: auto auto;
+    border-radius: 20px;
+}
+
+#game-canva{
+    position: relative;
+    width: min-content;
+    border: 1px solid black;
+    border-bottom-left-radius: 1cap;
+    border-bottom-right-radius: 1cap;
+}
+
+#contador{
+    width: max-content;
+    height: min-content;
+    padding: 10px;
+    float: right;
+}
+
+#timer{
+    width: max-content;
+}
+
+#clock{
+    font-size: x-large;
+    margin-top: 5%;
+    color: white;
+}
+
+#interfaces{
+    display: flex;
+    /* background-color: rgba(44, 53, 179, 1); */
+    background-color: rgb(10, 10, 87);
+    /* background-color: rgb(21, 21, 167); */
+    border-top-left-radius: 1cap;
+    border-top-right-radius: 1cap;
+    padding-bottom: 1%;
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+
+#botaoreset{
+    display: flex;
+    width: 50%;
+}
+
+.nopressed{
+    background-color: rgb(60, 80, 226);
+    width: 100%;
+    font-size: xx-large;
+    color: white;
+    border-radius: 25px;
+    border-bottom: 5px solid rgba(20, 60, 170, 1);
+}
+
+.onpressed{
+    background-color: rgb(60, 80, 226);
+    width: 100%;
+    font-size: xx-large;
+    color: white;
+    border-radius: 25px;
+    border-top: 5px solid rgb(10, 10, 87);
+}
+
+.info{ 
+    display: flex;
+    width: 100%;
+}
+
+#info1{
+    float: left;
+    width: 100%;
+    /* box-shadow: inset 0px 0px 2px 1px black; */
+}
+#info2{
+    display: flex;
+    width: 100;
+}
+
+#name-score{
+    color: white;
+    width: 1%;
+    padding: 0%;
+    margin: 0%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#score{
+    color: white;
+    font-size: xx-large;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+
+}
+
+#flagcount{
+    color: white;
+    font-size: xx-large;
+    margin: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#flag-image{
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 0%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
