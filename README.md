@@ -1,7 +1,7 @@
-# Introdução ao projeto
+# Campo minado
 Um jogo de campo minado simples, utilizando apenas ferramentas de front-end(HTML, CSS, JAVASCRIPT). Nesta primeira versão não tem um menu para selecionar a dificuldade, e nem um banco para guardar recordes e tals, tendo apenas o jogo com uma grade 15x15 com 45 bombas.
 
-# Metodologia
+# Funcionamento
 o jogo consiste em um canva no html, com uma matriz de items em camada, onde temos a primeira camada, onde vai ficar a marcação dos blocos, numeros e bombas. A segunda camada, chamada de lona, é a que vai esconder o conteúdo até ocorrer um evento de click e por ultimo a camada das bandeiras, que serve para marcar onde fica as bandeiras colocadas pelo jogador. Tudo consiste em 0 e 1 em todas as camadas para demarcar ausencia e presenca de algo.
 
 ## Camada Table 1
