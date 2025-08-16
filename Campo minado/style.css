@@ -3,12 +3,6 @@
     src: url(./assets/arcadeclassic/ARCADECLASSIC.TTF) format('truetype');
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html, body{
     background-color: rgb(13, 13, 46);
     /* background-color: rgb(52, 45, 131); */
