@@ -407,7 +407,7 @@ canvas.addEventListener("touchstart", (event) => {
     
     console.log(`[${y}][${x}]`);
     
-    if(turnflag){
+    if(!turnflag){
         if(!lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
             reveal(x, y);
         }
