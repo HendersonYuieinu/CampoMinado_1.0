@@ -3,15 +3,10 @@
     src: url(./assets/arcadeclassic/ARCADECLASSIC.TTF) format('truetype');
 }
 
-
-html, body{
+body{
     background-color: rgb(13, 13, 46);
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
+    /* background-color: rgb(52, 45, 131); */
     font-family: 'ArcadeClassic';
-    overflow: hidden;
 }
 
 button{
@@ -22,10 +17,6 @@ button{
 #game-board{
     width: min-content;
     margin: auto auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     border-radius: 20px;
 }
 
