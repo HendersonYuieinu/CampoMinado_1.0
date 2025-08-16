@@ -3,10 +3,19 @@
     src: url(./assets/arcadeclassic/ARCADECLASSIC.TTF) format('truetype');
 }
 
-body{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
     background-color: rgb(13, 13, 46);
     /* background-color: rgb(52, 45, 131); */
+    width: 100%;
+    height: 100%;;
     font-family: 'ArcadeClassic';
+    overflow: hidden;
 }
 
 button{
@@ -17,6 +26,10 @@ button{
 #game-board{
     width: min-content;
     margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 20px;
 }
 
