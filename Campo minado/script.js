@@ -6,6 +6,7 @@ const flagcount = document.getElementById("flagcount")
 const score = document.getElementById("score")
 const resetbutton = document.getElementById("reset")
 const relogio = document.getElementById("clock");
+const turnbutton = document.getElementById("turn");
 
 const blocksize = 40;
 const grade = 15;
@@ -17,6 +18,7 @@ var lose = false; //vai definir se o jogador perdeu
 var vitoria = false;
 var segundos = 0;
 var intervalo;
+var turnflag = false;
 
 canvas.width = grade * blocksize;
 canvas.height = grade * blocksize;
@@ -313,14 +315,37 @@ function reveal(x, y){ //revela ao clicar
     }
 }
 
+function turnclick(){
+    turnflag? turnflag = false: turnflag = true;
+
+    if(turnflag){
+        turnbutton.className = "stateonpressed";
+        console.log("modo de colocar bandeira ativado")
+        turnbutton.innerHTML = `<img class="buttonflagimage" src="assets/flag.png" alt="flag">`
+    }   
+    else{
+        turnbutton.className = "statenopressed";
+        console.log("modo de revelar ativado");
+        turnbutton.innerHTML = `<img class="buttoneyeimage" src="assets/eye.png" alt="reveal">`
+    }
+}
+
 function resetclick(){
     
     resetbutton.addEventListener("mousedown", () =>{
         resetbutton.className = "onpressed";
     });
+    resetbutton.addEventListener("touchstart", () =>{
+        resetbutton.className = "onpressed";
+    });
+
     resetbutton.addEventListener("mouseup", () =>{
         resetbutton.className = "nopressed";
     });
+    resetbutton.addEventListener("touchend", () =>{
+        resetbutton.className = "nopressed";
+    });
+
     clearInterval(intervalo);
     relogio.textContent = '00:00:00';
     lose = false;
@@ -366,6 +391,38 @@ canvas.addEventListener("mousedown", (event) => {
             flagcontagem++;
         } 
         flagcount.textContent = flagcontagem;
+    }
+    
+    update();
+});
+
+canvas.addEventListener("touchstart", (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const touch = event.touches[0];
+    const mousex = touch.clientX - rect.left;
+    const mousey = touch.clientY - rect.top;
+    
+    const x = Math.floor(mousex / blocksize);
+    const y = Math.floor(mousey / blocksize);
+    
+    console.log(`[${y}][${x}]`);
+    
+    if(turnflag){
+        if(!lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
+            reveal(x, y);
+        }
+    }
+    else{
+        if(event.touches.length === 1 && !lose && lona[x][y] === 1){
+            if(flaglayer[x][y] === 0 && flagcontagem > 0){
+                flaglayer[x][y] = 1;
+                flagcontagem--;
+            }else if(flaglayer[x][y] === 1){
+                flaglayer[x][y] = 0;
+                flagcontagem++;
+            } 
+            flagcount.textContent = flagcontagem;
+        }
     }
     
     update();
