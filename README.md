@@ -16,6 +16,10 @@ Se o local não tiver contabilizado nenhuma bomba próxima, ele vai buscar ao re
 ## Camada 3 FlagLayer
 Essa camada vai ser usada para marcar as bandeiras postas, iniciando com nenhuma e quando o jogador clicar com o botão direito do mouse, vai ser colocado uma bandeira. Nota que se todos os locais com bomba tiverem uma bandeira no mesmo local, o jogo acaba, sendo o jogador vencedor.
 
+## Interface
+<img width="646" height="791" alt="image" src="https://github.com/user-attachments/assets/e6c100fe-417a-4183-a53d-f08cbd29ced6" />
+
+
 # Pontuacões
 O jogo recompensa o jogador com quatro quantidades de pontos: 
 ### espaço com até 2 bombas ao redor - 50 pontos;
