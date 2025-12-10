@@ -290,6 +290,7 @@ function counterbombs(y, x){ //contar as bombas ao redor, diferente da funcao de
 }
 
 function reveal(x, y){ //revela ao clicar
+    if(!turnflag){
     lona[x][y] = 0;
     if(table[x][y] === 1){
         alert("LOSE!")
@@ -312,6 +313,7 @@ function reveal(x, y){ //revela ao clicar
         }
         score.textContent = String(pontuacao).padStart(8, '0');
         return;
+    }
     }
 }
 
@@ -436,3 +438,4 @@ creategame();
 definebombs(bombnumber);
 intervalo = setInterval(contagem, 1000);
 update();
+
