@@ -413,7 +413,7 @@ canvas.addEventListener("touchstart", (event) => {
             reveal(x, y);
         }
     }
-    else{
+    else if(turnflag){
         if(event.touches.length === 1 && !lose && lona[x][y] === 1){
             if(flaglayer[x][y] === 0 && flagcontagem > 0){
                 flaglayer[x][y] = 1;
@@ -437,5 +437,6 @@ creategame();
 definebombs(bombnumber);
 intervalo = setInterval(contagem, 1000);
 update();
+
 
 
