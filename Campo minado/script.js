@@ -290,7 +290,6 @@ function counterbombs(y, x){ //contar as bombas ao redor, diferente da funcao de
 }
 
 function reveal(x, y){ //revela ao clicar
-    if(!turnflag){
     lona[x][y] = 0;
     if(table[x][y] === 1){
         alert("LOSE!")
@@ -314,7 +313,7 @@ function reveal(x, y){ //revela ao clicar
         score.textContent = String(pontuacao).padStart(8, '0');
         return;
     }
-    }
+    
 }
 
 function turnclick(){
@@ -410,7 +409,7 @@ canvas.addEventListener("touchstart", (event) => {
     console.log(`[${y}][${x}]`);
     
     if(!turnflag){
-        if(!lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
+        if(event.touches.length === 1 && !lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
             reveal(x, y);
         }
     }
@@ -438,4 +437,5 @@ creategame();
 definebombs(bombnumber);
 intervalo = setInterval(contagem, 1000);
 update();
+
 
