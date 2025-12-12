@@ -19,6 +19,7 @@ var vitoria = false;
 var segundos = 0;
 var intervalo;
 var turnflag = false;
+var touchmode = false;
 
 canvas.width = grade * blocksize;
 canvas.height = grade * blocksize;
@@ -313,7 +314,6 @@ function reveal(x, y){ //revela ao clicar
         score.textContent = String(pontuacao).padStart(8, '0');
         return;
     }
-    
 }
 
 function turnclick(){
@@ -369,35 +369,11 @@ function resetclick(){
     update();
 }
 
-canvas.addEventListener("mousedown", (event) => {
-    const rect = canvas.getBoundingClientRect();
-    const mousex = event.clientX - rect.left;
-    const mousey = event.clientY - rect.top;
-    
-    const x = Math.floor(mousex / blocksize);
-    const y = Math.floor(mousey / blocksize);
-    
-    console.log(`[${y}][${x}]`);
-    
-    if(event.button === 0 && !lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
-        reveal(x, y);
-    }
-    
-    if(event.button === 2 && !lose && lona[x][y] === 1){
-        if(flaglayer[x][y] === 0 && flagcontagem > 0){
-            flaglayer[x][y] = 1;
-            flagcontagem--;
-        }else if(flaglayer[x][y] === 1){
-            flaglayer[x][y] = 0;
-            flagcontagem++;
-        } 
-        flagcount.textContent = flagcontagem;
-    }
-    
-    update();
-});
+
+
 
 canvas.addEventListener("touchstart", (event) => {
+    touchmode = true;
     const rect = canvas.getBoundingClientRect();
     const touch = event.touches[0];
     const mousex = touch.clientX - rect.left;
@@ -413,8 +389,8 @@ canvas.addEventListener("touchstart", (event) => {
             reveal(x, y);
         }
     }
-    else if(turnflag){
-        if(!lose && lona[x][y] === 1){
+    else{
+        if(event.touches.length === 1 && !lose && lona[x][y] === 1){
             if(flaglayer[x][y] === 0 && flagcontagem > 0){
                 flaglayer[x][y] = 1;
                 flagcontagem--;
@@ -429,6 +405,37 @@ canvas.addEventListener("touchstart", (event) => {
     update();
 });
 
+canvas.addEventListener("mousedown", (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const mousex = event.clientX - rect.left;
+    const mousey = event.clientY - rect.top;
+    
+    const x = Math.floor(mousex / blocksize);
+    const y = Math.floor(mousey / blocksize);
+    
+    console.log(`[${y}][${x}]`);
+    
+    if(!touchmode){
+        if(event.button === 0 && !lose && flaglayer[x][y] === 0 && lona[x][y] === 1){
+            reveal(x, y);
+        }
+        
+        if(event.button === 2 && !lose && lona[x][y] === 1){
+            if(flaglayer[x][y] === 0 && flagcontagem > 0){
+                flaglayer[x][y] = 1;
+                flagcontagem--;
+            }else if(flaglayer[x][y] === 1){
+                flaglayer[x][y] = 0;
+                flagcontagem++;
+            } 
+            flagcount.textContent = flagcontagem;
+        }
+        
+    }
+    
+    update();
+});
+
 canvas.addEventListener("contextmenu", (event) => { //ignora o contexto de menu ao clicar com o botao direito do mouse
     event.preventDefault();
 });
@@ -437,8 +444,3 @@ creategame();
 definebombs(bombnumber);
 intervalo = setInterval(contagem, 1000);
 update();
-
-
-
-
-
